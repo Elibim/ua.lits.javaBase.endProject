@@ -12,13 +12,13 @@ public class DGoodsChoose {
         System.out.println("Choose article NO (or 0 for category choose ... ): ");
         boolean exitGoods = false;
         while (!exitGoods) {
-            int input = goodsChoose.nextInt();
-            if (input == 0) {
+            String input = goodsChoose.nextLine();
+            if (input == "0") {
                 BA.getListOfArt();
             } else {
                 List<Goods> goods = GoodsDB.getGoods();
                 goods.stream()
-                        .filter(goods2 -> goods2.getArticleNumber().equals(input))
+                        .filter(goods1 -> goods1.getArticleNumber().equals(input))
                         .forEach(e -> System.out.println(
                                 "Article No: " + e.getArticleNumber()
                                         + ", Article name: " + e.getArticleName()

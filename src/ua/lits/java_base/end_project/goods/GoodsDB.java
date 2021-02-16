@@ -85,7 +85,7 @@ public class GoodsDB {
         Goods drinksSeven = new Goods("09007", Category.Drinks, "Coca-Cola", 30, 120);
         Goods drinksEight = new Goods("09008", Category.Drinks, "Zhivchik", 8, 56);
         Goods drinksNine = new Goods("09009", Category.Drinks, "Lemonade", 20, 30);
-        Goods drinksTen = new Goods("09010", Category.Drinks, "Enegy Drink", 26, 15);
+        Goods drinksTen = new Goods("09010", Category.Drinks, "Energy Drink", 26, 15);
 
         Goods alcoholOne = new Goods("10001", Category.Alcohol, "Tequila", 380, 5);
         Goods alcoholTwo = new Goods("10002", Category.Alcohol, "Beer", 45, 15);
