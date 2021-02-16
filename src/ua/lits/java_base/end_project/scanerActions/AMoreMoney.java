@@ -1,6 +1,5 @@
 package ua.lits.java_base.end_project.scanerActions;
 
-import ua.lits.java_base.end_project.goods.Category;
 import ua.lits.java_base.end_project.wallet.Wallet;
 import java.util.Scanner;
 // https://stackoverflow.com/questions/2496239/how-do-i-keep-a-scanner-from-throwing-exceptions-when-the-wrong-type-is-entered
