@@ -14,7 +14,7 @@ public class DGoodsChoose {
         while (!exitGoods) {
             String input = goodsChoose.nextLine();
             if (input == "0") {
-                BA.getListOfArt();
+                BCategoryChoose.getCategory();
             } else {
                 List<Goods> goods = GoodsDB.getGoods();
                 goods.stream()
