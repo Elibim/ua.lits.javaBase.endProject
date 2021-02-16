@@ -5,7 +5,7 @@ import java.util.List;
 
 public class GoodsDB {
     public static List<Goods> getGoods() {
-        Goods fruitsOne = new Goods("01001", Category.Fruits, "Apple green", 15, 100);
+        Goods fruitsOne = new Goods("01001", Category.Fruits, "Apple green", 15.7, 100);
         Goods fruitsTwo = new Goods("01002", Category.Fruits, "Apple red", 16, 50);
         Goods fruitsThree = new Goods("01003", Category.Fruits, "Pear", 20, 65);
         Goods fruitsFour = new Goods("01004", Category.Fruits, "Banana", 10, 80);

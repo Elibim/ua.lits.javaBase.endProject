@@ -14,8 +14,7 @@ public class EAmount {
         while (!exitAmount) {
             int input = amount.nextInt();
             if (input == 0){
-
             }
         }
     }
-    }
+}

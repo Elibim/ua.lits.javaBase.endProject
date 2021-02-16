@@ -9,11 +9,11 @@ import java.util.Scanner;
 public class DGoodsChoose {
     public static void getGoods() {
         Scanner goodsChoose = new Scanner(System.in);
-        System.out.println("Choose article NO (or 0 for category choose ... ): ");
+        System.out.println("Choose article No (or 0 for category choose ... ): ");
         boolean exitGoods = false;
         while (!exitGoods) {
             String input = goodsChoose.nextLine();
-            if (input == "0") {
+            if (input.equals("0")) {
                 BCategoryChoose.getCategory();
             } else {
                 List<Goods> goods = GoodsDB.getGoods();
@@ -24,6 +24,9 @@ public class DGoodsChoose {
                                         + ", Article name: " + e.getArticleName()
                                         + ", Price: " + e.getPrice()
                                         + ", Quantity on stock: " + e.getInStock()));
+//                goodsChoose.next();
+                System.out.println("and amount you wish to buy:");
+
             }
         }
     }
