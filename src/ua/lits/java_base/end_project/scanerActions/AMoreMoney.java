@@ -3,7 +3,7 @@ package ua.lits.java_base.end_project.scanerActions;
 import ua.lits.java_base.end_project.goods.Category;
 import ua.lits.java_base.end_project.wallet.Wallet;
 import java.util.Scanner;
-
+// https://stackoverflow.com/questions/2496239/how-do-i-keep-a-scanner-from-throwing-exceptions-when-the-wrong-type-is-entered
 public class AMoreMoney {
     public static void getMoreMoney() {
         Wallet wallet = new Wallet();
@@ -13,9 +13,8 @@ public class AMoreMoney {
         while (!exit) {
             System.out.println("Welcome in  our online store. \nYou have " + wallet.getWallet() +
                     " UAH in your wallet. \nPlease insert some more money (write amount) or 0 for exit...");
-            int input = 0;
+            int input = welcome.nextInt();
 //            try {
-                input = welcome.nextInt();
 //            }
 //            catch (Exception e) {
 //                System.out.println("Please read menu again!");
@@ -27,10 +26,7 @@ public class AMoreMoney {
                     wallet.setWallet(wallet.getWallet() + input);
                     System.out.println("Congratulations! " + input + " is added to your wallet. Now you have "
                             + (wallet.getWallet() + " UAH"));
-                    System.out.println("Please choose category by writing first & last letters of category " +
-                            "(fx. for fruits write fs) or x for previous menu... ");
-                    System.out.println(java.util.Arrays.asList(Category.values()));
-
+                    BA.getListOfArt();
                     BCategoryChoose.getCategory();
                 } else {
                     System.out.println("Please check menu!!!");
