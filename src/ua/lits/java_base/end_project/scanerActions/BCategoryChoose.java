@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 public class BCategoryChoose {
     public static void getCategory() {
+        System.out.println("Please choose category by writing first & last letters of category " +
+                "(fx. for fruits write fs) or x for previous menu... ");
+        System.out.println(java.util.Arrays.asList(Category.values()));
         Scanner category = new Scanner(System.in);
         boolean exitCategory = false;
         while (!exitCategory) {

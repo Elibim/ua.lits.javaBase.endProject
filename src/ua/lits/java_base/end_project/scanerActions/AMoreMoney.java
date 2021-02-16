@@ -6,12 +6,14 @@ import java.util.Scanner;
 // https://stackoverflow.com/questions/2496239/how-do-i-keep-a-scanner-from-throwing-exceptions-when-the-wrong-type-is-entered
 public class AMoreMoney {
     public static void getMoreMoney() {
+        System.out.println("Welcome in  our online store. ");
+
         Wallet wallet = new Wallet();
 
         Scanner welcome = new Scanner(System.in);
         boolean exit = false;
         while (!exit) {
-            System.out.println("Welcome in  our online store. \nYou have " + wallet.getWallet() +
+            System.out.println("You have " + wallet.getWallet() +
                     " UAH in your wallet. \nPlease insert some more money (write amount) or 0 for exit...");
             int input = welcome.nextInt();
 //            try {
@@ -26,7 +28,6 @@ public class AMoreMoney {
                     wallet.setWallet(wallet.getWallet() + input);
                     System.out.println("Congratulations! " + input + " is added to your wallet. Now you have "
                             + (wallet.getWallet() + " UAH"));
-                    BA.getListOfArt();
                     BCategoryChoose.getCategory();
                 } else {
                     System.out.println("Please check menu!!!");
