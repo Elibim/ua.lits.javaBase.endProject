@@ -1,5 +1,7 @@
 package ua.lits.java_base.end_project.scanerActions;
 
+import ua.lits.java_base.end_project.cart.Cart;
+import ua.lits.java_base.end_project.goods.Category;
 import ua.lits.java_base.end_project.goods.Goods;
 import ua.lits.java_base.end_project.goods.GoodsDB;
 
@@ -14,19 +16,38 @@ public class DGoodsChoose {
         while (!exitGoods) {
             String input = goodsChoose.nextLine();
             if (input.equals("0")) {
-                BCategoryChoose.getCategory();
+                System.out.println("Please choose category by writing first & last letters of category " +
+                        "(fx. for fruits write fs) or x for start menu... ");
+                System.out.println(java.util.Arrays.asList(Category.values()));
+                exitGoods = true;
+//                BCategoryChoose.getCategory();
+                goodsChoose.next();
             } else {
-                List<Goods> goods = GoodsDB.getGoods();
-                goods.stream()
-                        .filter(goods1 -> goods1.getArticleNumber().equals(input))
-                        .forEach(e -> System.out.println(
-                                "Article No: " + e.getArticleNumber()
-                                        + ", Article name: " + e.getArticleName()
-                                        + ", Price: " + e.getPrice()
-                                        + ", Quantity on stock: " + e.getInStock()));
-//                goodsChoose.next();
-                System.out.println("and amount you wish to buy:");
-
+                boolean exitAmount = false;
+                while (!exitGoods) {
+                    if ("0".equals(input)) {
+                        exitAmount = true;
+                    } else if ("c".equals(input)) {
+                        Cart.getInstance().showCart();
+                    } else {
+                        List<Goods> goods = GoodsDB.getGoods();
+                        Goods selected = goods.stream()
+                                .filter(goods1 -> goods1.getArticleNumber().equals(input)).findFirst().get();
+                        System.out.println("Article No: " + selected.getArticleNumber()
+                                        + ", Article name: " + selected.getArticleName()
+                                        + ", Price: " + selected.getPrice()
+                                        + ", Quantity on stock: " + selected.getInStock());
+                        System.out.println("Select amount or 0 for previous menu:");
+                        int input2 = goodsChoose.nextInt();
+                        if (input2 > 0 && input2 < selected.getInStock()) {
+                            System.out.println(selected.getArticleName()
+                                            + ": " + selected.getPrice()
+                                            + "x" + input2 + " Total: " + selected.getPrice() * input2);
+                            Cart instance = Cart.getInstance();
+                            instance.addToCart(selected);
+                        }
+                    }
+                }
             }
         }
     }
